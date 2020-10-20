@@ -5,8 +5,8 @@ var gameSettings = {
 }
 
 var config = {
-  width: 256,
-  height: 272,
+  width: 768,
+  height: 680,
   backgroundColor: 0x000000,
   scene: [Scene1, Scene2],
   pixelArt: true,
