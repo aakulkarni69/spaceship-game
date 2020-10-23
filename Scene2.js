@@ -59,7 +59,6 @@ class Scene2 extends Phaser.Scene {
 
     }
 
-
     this.player = this.physics.add.sprite(config.width / 2 - 8, config.height - 64, "player");
     this.player.play("thrust");
     this.cursorKeys = this.input.keyboard.createCursorKeys();
