@@ -100,9 +100,8 @@ class Scene2 extends Phaser.Scene {
     //this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE ", 16);
 
     // 4.3 format the score
-    var scoreFormated = this.zeroPad(this.score, 6);
     this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
-    this.gameOverLabel = this.add.text(384, 340, "GAME OVER !", {fontSize: '64px', fontWeight: '900\'});
+    this.gameOverLabel = this.add.text(384, 340, "GAME OVER !", {fontSize: '64px', fontWeight: '900'});
     this.gameOverLabel.setOrigin(0.5);
     this.gameOverLabel.visible = false;
 
