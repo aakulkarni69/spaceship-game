@@ -103,6 +103,9 @@ class Scene2 extends Phaser.Scene {
     // 4.3 format the score
     var scoreFormated = this.zeroPad(this.score, 6);
     this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
+    this.gameOverLabel = this.add.text(384, 340, "GAME OVER !", {fontSize: '64px', fontWeight: '900'});
+    this.gameOverLabel.setOrigin(0.5);
+    this.gameOverLabel.visible = false;
 
   }
 
@@ -111,9 +114,14 @@ class Scene2 extends Phaser.Scene {
   }
 
   hurtPlayer(player, enemy) {
+    this.physics.pause();
+
     this.resetShipPos(enemy);
     player.x = config.width / 2 - 8;
     player.y = config.height - 64;
+    this.gameOverLabel.visible = true;
+
+    gameOver = true;
   }
 
   hitEnemy(projectile, enemy) {
@@ -144,6 +152,11 @@ class Scene2 extends Phaser.Scene {
 
 
   update() {
+
+    if (gameOver)
+    {
+        return;
+    }
 
 
     this.moveShip(this.ship1, 1);
