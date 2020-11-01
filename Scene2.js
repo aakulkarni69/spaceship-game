@@ -100,12 +100,15 @@ class Scene2 extends Phaser.Scene {
     //this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE ", 16);
 
     // 4.3 format the score
-     var scoreFormated = this.zeroPad(this.score, 6);
-    this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated  , 16);
-    this.gameOverLabel = this.add.text(384, 340, "GAME OVER !", {fontSize: '64px', fontWeight: '900'});
-    this.gameOverLabel.setOrigin(0.5);
-    this.gameOverLabel.visible = false;
 
+    var scoreFormated = this.zeroPad(this.score, 6);
+    this.scoreLabel = this.add.bitmapText(384, 400, "pixelFont", "SCORE : " + scoreFormated  , 64, {fontWeight: '900'});
+    this.gameOverLabel = this.add.text(384, 300, "GAME OVER", {fontSize: '64px', fontWeight: '900'});
+
+    this.gameOverLabel.setOrigin(0.5);
+    this.scoreLabel.setOrigin(0.5)
+    this.gameOverLabel.visible = false;
+    this.scoreLabel.visible = false;
   }
 
   pickPowerUp(player, powerUp) {
@@ -119,6 +122,7 @@ class Scene2 extends Phaser.Scene {
     player.x = config.width / 2 - 8;
     player.y = config.height - 64;
     this.gameOverLabel.visible = true;
+    this.scoreLabel.visible = true;
 
     gameOver = true;
   }
@@ -134,7 +138,7 @@ class Scene2 extends Phaser.Scene {
 
     // 4.2 format the score
      var scoreFormated = this.zeroPad(this.score, 6);
-     this.scoreLabel.text = "SCORE " + scoreFormated;
+     this.scoreLabel.text = "SCORE : " + scoreFormated;
   }
 
 
