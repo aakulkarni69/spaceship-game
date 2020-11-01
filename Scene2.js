@@ -101,12 +101,14 @@ class Scene2 extends Phaser.Scene {
 
     // 4.3 format the score
     var scoreFormated = this.zeroPad(this.score, 6);
-    this.scoreLabel = this.add.text(384, 400, "SCORE " +  scoreFormated , {fontSize: '64px' , fontWeight: '900', textShadow:'2px 5px 5px red'});
+    //var Score = String(this.score);
+    this.scoreLabel1 = this.add.bitmapText(10, 5, "pixelFont", "SCORE " + scoreFormated , 16);
+    //this.scoreLabel = this.add.text(384, 400, "SCORE " +  Score , {fontSize: '64px' , fontWeight: '900', textShadow:'2px 5px 5px red'});
     this.gameOverLabel = this.add.text(384, 300, "GAME OVER", {fontSize: '64px', fontWeight: '900', textShadow:'2px 5px 5px red'});
     this.gameOverLabel.setOrigin(0.5);
-    this.scoreLabel.setOrigin(0.5)
+    //this.scoreLabel.setOrigin(0.5)
     this.gameOverLabel.visible = false;
-    this.scoreLabel.visible = false;
+    //this.scoreLabel.visible = false;
   }
 
   pickPowerUp(player, powerUp) {
@@ -119,6 +121,11 @@ class Scene2 extends Phaser.Scene {
     this.resetShipPos(enemy);
     player.x = config.width / 2 - 8;
     player.y = config.height - 64;
+
+    var Score = String(this.score);
+    this.scoreLabel = this.add.text(384, 400, "SCORE " +  Score , {fontSize: '64px' , fontWeight: '900', textShadow:'2px 5px 5px red'});
+    this.scoreLabel.setOrigin(0.5)
+
     this.gameOverLabel.visible = true;
     this.scoreLabel.visible = true;
 
@@ -136,7 +143,7 @@ class Scene2 extends Phaser.Scene {
 
     // 4.2 format the score
      var scoreFormated = this.zeroPad(this.score, 6);
-     this.scoreLabel.text = "SCORE " + scoreFormated;
+     this.scoreLabel1.text = "SCORE " + scoreFormated;
   }
 
 
@@ -144,8 +151,8 @@ class Scene2 extends Phaser.Scene {
   zeroPad(number, size){
       var stringNumber = String(number);
       while(stringNumber.length < (size || 2)){
-        //stringNumber = "0" + stringNumber;
-        return stringNumber;
+        stringNumber = "0" + stringNumber;
+        //return stringNumber;
       }
       return stringNumber;
   }
