@@ -100,11 +100,9 @@ class Scene2 extends Phaser.Scene {
     //this.scoreLabel = this.add.bitmapText(10, 5, "pixelFont", "SCORE ", 16);
 
     // 4.3 format the score
-
     var scoreFormated = this.zeroPad(this.score, 6);
-    this.scoreLabel = this.add.bitmapText(384, 400, "pixelFont", "SCORE : " + scoreFormated  , 64, {fontWeight: '900'});
-    this.gameOverLabel = this.add.text(384, 300, "GAME OVER", {fontSize: '64px', fontWeight: '900'});
-
+    this.scoreLabel = this.add.text(384, 400, "SCORE " +  scoreFormated , {fontSize: '64px' , fontWeight: '900', textShadow:'2px 5px 5px red'});
+    this.gameOverLabel = this.add.text(384, 300, "GAME OVER", {fontSize: '64px', fontWeight: '900', textShadow:'2px 5px 5px red'});
     this.gameOverLabel.setOrigin(0.5);
     this.scoreLabel.setOrigin(0.5)
     this.gameOverLabel.visible = false;
@@ -138,7 +136,7 @@ class Scene2 extends Phaser.Scene {
 
     // 4.2 format the score
      var scoreFormated = this.zeroPad(this.score, 6);
-     this.scoreLabel.text = "SCORE : " + scoreFormated;
+     this.scoreLabel.text = "SCORE " + scoreFormated;
   }
 
 
@@ -146,7 +144,8 @@ class Scene2 extends Phaser.Scene {
   zeroPad(number, size){
       var stringNumber = String(number);
       while(stringNumber.length < (size || 2)){
-        stringNumber = "0" + stringNumber;
+        //stringNumber = "0" + stringNumber;
+        return stringNumber;
       }
       return stringNumber;
   }
